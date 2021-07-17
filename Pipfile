@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+gitdb = "==4.0.7"
+smmap = "==4.0.0"
+Flask = "==2.0.1"
+python-frontmatter = "*"
+gitpython = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
