@@ -1,6 +1,8 @@
 # serverless framework
 .serverless/
 
+**/tmp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

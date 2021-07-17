@@ -1,22 +1,22 @@
 import unittest
+from unittest.mock import patch
+from handlers import extractor, mocks
 
 
 class TestStringMethods(unittest.TestCase):
 
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
-
+    @patch('flask.jsonify')
+    def test_upper(self, mock_jsonify):
+        # setup
+        mock_request = mocks.Request({
+            'repo': 'https://github.com/brandoncate-personal/blog-content'
+        })
+        mock_response = mocks.Response()
+        mock_jsonify.return_value = mock_response
+        # test
+        resp = extractor.extract(mock_request)
+        # assert
+        self.assertEqual(resp, mock_response)
 
 if __name__ == '__main__':
     unittest.main()

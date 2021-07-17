@@ -6,7 +6,7 @@ import frontmatter
 
 
 def extract(request: flask.Request) -> flask.Response:
-    path = "/tmp"
+    path = "tmp"
 
     repoName = request.args["repo"]
 
