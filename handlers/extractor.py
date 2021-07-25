@@ -6,7 +6,7 @@ import frontmatter
 
 
 def extract(request: flask.Request) -> flask.Response:
-    path = "tmp"
+    path = "/tmp"
 
     repoName = request.args["repo"]
 
@@ -23,12 +23,15 @@ def extract(request: flask.Request) -> flask.Response:
     repo = Repo.clone_from(repoName, path)
 
     markdown = []  # object holding unique set of .md files
-    for filePath in repo.active_branch.commit.stats.files.keys():
-        if filePath.endswith(".md"):
-            post = frontmatter.load(path + '/' + filePath)
+
+    # for now just use active branch which will normally be 'main'
+    name = repo.active_branch.name
+    for blob in repo.commit(name).tree.traverse():
+        if blob.name.endswith(".md"):
+            post = frontmatter.load(path + '/' + blob.path)
 
             markdown.append({
-                'path': filePath,
+                'path': blob.path,
                 'title': post['title']
             })
 
