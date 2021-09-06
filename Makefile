@@ -5,5 +5,8 @@ setup:
 	echo "update the python virtual shell with new shell name"
 
 # deploy to google cloud functions using serverless framework
-deploy:
-	serverless deploy
+deploy-dev:
+	serverless deploy --stage dev
+
+deploy-prod:
+	serverless deploy --stage prod

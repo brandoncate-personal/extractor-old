@@ -6,9 +6,12 @@ name = "pypi"
 [packages]
 gitdb = "==4.0.7"
 smmap = "==4.0.0"
-Flask = "==2.0.1"
+flask = "==2.0.1"
 python-frontmatter = "*"
 gitpython = "*"
+requests = "*"
+flask-restful = "*"
+marshmallow = "*"
 
 [dev-packages]
 
