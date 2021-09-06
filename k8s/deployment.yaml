@@ -14,7 +14,7 @@ spec:
         app: extractor
     spec:
       containers:
-        - image: cheapacr.azurecr.io/extractor:latest
+        - image: cheapacr.azurecr.io/extractor:ad1859c69b342bc16a59a1107ee6e62182bce8af
           name: extractor
           ports:
             - containerPort: 5000
