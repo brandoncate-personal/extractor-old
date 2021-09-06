@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: extractor
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: extractor
+  template:
+    metadata:
+      labels:
+        app: extractor
+    spec:
+      containers:
+        - image: cheapacr.azurecr.io/extractor:latest
+          name: extractor
+          ports:
+            - containerPort: 5000
