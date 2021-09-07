@@ -1,0 +1,8 @@
+apiVersion: x.getambassador.io/v3alpha1
+kind: AmbassadorMapping
+metadata:
+  name: extractor
+spec:
+  hostname: "*"
+  prefix: /
+  service: extractor:5000
