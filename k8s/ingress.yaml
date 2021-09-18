@@ -5,4 +5,5 @@ metadata:
 spec:
   hostname: "*"
   prefix: /api/v1/
+  method: GET
   service: kustomize-extractor:5000
